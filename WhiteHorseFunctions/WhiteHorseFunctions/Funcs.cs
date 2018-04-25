@@ -79,12 +79,12 @@ namespace Functions
         public static IList<Element> ElementsAtLevel_TS(int? levelId)
         {
             IList<Element> result = new List<Element>();
-            Document doc = DocumentManager.Instance.CurrentDBDocument;
-
+             
             int id = levelId == null ? -1 : (int)levelId;
             if (id == -1) return result;
               
-            result = doc.GetCollector().WherePasses(new ElementLevelFilter(id.ToElementId()))
+            result = DocumentManager.Instance.CurrentDBDocument.GetCollector()
+                .WherePasses(new ElementLevelFilter(id.ToElementId()))
                 .WhereElementIsNotElementType()
                 .Select(m => m.Id.ToPyElement()).ToList();
              
@@ -92,8 +92,10 @@ namespace Functions
         }
         public static IList<Element> ElementsOfCategoryTS(int categoryId)
         {
-            return DocumentManager.Instance.CurrentDBDocument.GetCollector().OfCategoryId(categoryId.ToElementId())
-                .WhereElementIsNotElementType().Select(m => m.Id.ToPyElement()).ToList();
+            return DocumentManager.Instance.CurrentDBDocument.GetCollector()
+                .OfCategoryId(categoryId.ToElementId())
+                .WhereElementIsNotElementType()
+                .Select(m => m.Id.ToPyElement()).ToList();
         }
          
         //根据元素familytypeId 获取元素的类型
