@@ -396,7 +396,7 @@ namespace RevitUI
                     Family family = (Family)enumerator.Current;
                     foreach (ElementId current in family.GetFamilySymbolIds())
                     {
-                        Element element = family.Document.GetElement(current);
+                        Element element = family.Document.ToPyElement(current);
                         base.Items.Add(new DynamoDropDownItem(string.Format("{0}:{1}", family.Name, element.Name), current.IntegerValue));
                     }
                 }

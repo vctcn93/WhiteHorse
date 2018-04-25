@@ -57,11 +57,13 @@ namespace GeomTools
         /// <param name="curve1"></param>
         /// <param name="curve2"></param>
         /// <returns></returns>
-        public static bool CanJoin(Autodesk.DesignScript.Geometry.Curve curve1, Autodesk.DesignScript.Geometry.Curve curve2)
+        public static bool CanJoin(Autodesk.DesignScript.Geometry.Curve curve1, 
+            Autodesk.DesignScript.Geometry.Curve curve2)
         {
             Autodesk.DesignScript.Geometry.Point pt1 = curve1.StartPoint;
             Autodesk.DesignScript.Geometry.Point pt2 = curve1.EndPoint;
-            List<Autodesk.DesignScript.Geometry.Point> crvPts = new List<Autodesk.DesignScript.Geometry.Point>() { curve2.StartPoint, curve2.EndPoint };
+            List<Autodesk.DesignScript.Geometry.Point> crvPts = 
+                new List<Autodesk.DesignScript.Geometry.Point>() { curve2.StartPoint, curve2.EndPoint };
             bool b = false;
             foreach (var p in crvPts)
             {
