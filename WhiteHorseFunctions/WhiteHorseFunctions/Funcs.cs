@@ -76,7 +76,7 @@ namespace Functions
         /// </summary>
         /// <param name="levelId"></param>
         /// <returns></returns>
-        public static IList<Element> ElementsAtLevel_TS(int? levelId)
+        public static IList<Element> ElementsAtLevelTS(int? levelId)
         {
             IList<Element> result = new List<Element>();
              
