@@ -16,15 +16,16 @@ namespace WhiteHorseLib.Extension
         public static bool IsAlmostEqualsTo(this DyCurve curve,DyCurve curve2,int Accuracy=100)
         {
             //判断从0到1的 分段点上  点相等 而且 所在点的切线平行
+            double accuracyPercent = -1;
             if (Accuracy==0)
             {
                 throw new Exception("wrong parameter");
             }
             for (int i = 0; i <= Accuracy; i++)
             {
-                double accuracyPercent = i==0?0:i / Accuracy;
+                  accuracyPercent = i==0?0:i / Accuracy;
                 if (!curve.PointAtParameter(accuracyPercent).IsAlmostEqualTo(curve2.PointAtParameter(accuracyPercent))||
-                    curve.TangentAtParameter(accuracyPercent).IsParallel(curve2.TangentAtParameter(accuracyPercent))
+                    !curve.TangentAtParameter(accuracyPercent).IsParallel(curve2.TangentAtParameter(accuracyPercent))
                     )
                 {
                     return false;
