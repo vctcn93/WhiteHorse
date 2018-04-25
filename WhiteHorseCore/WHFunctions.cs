@@ -18,10 +18,14 @@ namespace GeomTools
         /// <returns></returns>
         public static bool JudgeDuplicatePoints(Autodesk.DesignScript.Geometry.Point point1, Autodesk.DesignScript.Geometry.Point point2)
         {
-            if (point1.X == point2.X && point1.Y == point2.Y && point1.Z == point2.Z)
+            if (point1.IsAlmostEqualTo(point2))
             {
                 return true;
             }
+            //if (point1.X == point2.X && point1.Y == point2.Y && point1.Z == point2.Z)
+            //{
+            //    return true;
+            //}
             return false;
         }
 
