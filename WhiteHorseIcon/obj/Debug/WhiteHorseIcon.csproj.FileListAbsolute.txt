@@ -1,0 +1,15 @@
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\bin\Debug\WhiteHorseIcon.dll
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\bin\Debug\WhiteHorseIcon.pdb
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.csprojResolveAssemblyReference.cache
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.Resources.WhiteHorseImages.resources
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.csproj.GenerateResource.Cache
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.csproj.CoreCompileInputs.cache
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.dll
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.pdb
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\bin\Debug\WhiteHorseIcon.dll
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\bin\Debug\WhiteHorseIcon.pdb
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.csproj.GenerateResource.Cache
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.csproj.CoreCompileInputs.cache
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.dll
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.pdb
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseIcon\obj\Debug\WhiteHorseIcon.Resources.WhiteHorseImages.resources

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteHorse_Core", "WhiteHorseCore\WhiteHorse_Core.csproj", "{B381254B-8A55-4B46-B4D3-3DFD526A6F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteHorse_UI", "WhiteHorseUI\WhiteHorse_UI.csproj", "{F955DC3C-6144-45FF-B51E-20CCD97EDFFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteHorseFunctions", "WhiteHorseFunctions\WhiteHorseFunctions\WhiteHorseFunctions.csproj", "{7B69842E-41E0-4E13-B5E3-21CCA8DCADFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteHorseIcon", "WhiteHorseIcon\WhiteHorseIcon.csproj", "{E5204BD4-9609-4210-88A8-E6E4B07A41AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B381254B-8A55-4B46-B4D3-3DFD526A6F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B381254B-8A55-4B46-B4D3-3DFD526A6F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B381254B-8A55-4B46-B4D3-3DFD526A6F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B381254B-8A55-4B46-B4D3-3DFD526A6F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F955DC3C-6144-45FF-B51E-20CCD97EDFFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F955DC3C-6144-45FF-B51E-20CCD97EDFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F955DC3C-6144-45FF-B51E-20CCD97EDFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F955DC3C-6144-45FF-B51E-20CCD97EDFFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B69842E-41E0-4E13-B5E3-21CCA8DCADFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B69842E-41E0-4E13-B5E3-21CCA8DCADFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B69842E-41E0-4E13-B5E3-21CCA8DCADFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B69842E-41E0-4E13-B5E3-21CCA8DCADFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5204BD4-9609-4210-88A8-E6E4B07A41AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5204BD4-9609-4210-88A8-E6E4B07A41AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5204BD4-9609-4210-88A8-E6E4B07A41AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5204BD4-9609-4210-88A8-E6E4B07A41AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {833169E8-4A03-429A-9DF9-5890FA7C1839}
+	EndGlobalSection
+EndGlobal

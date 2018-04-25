@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>WhiteHorse</name>
+  </assembly>
+  <namespaces>
+    <namespace name="Setting">
+      <category>WhiteHorse</category>
+    </namespace>
+  </namespaces>
+</doc>

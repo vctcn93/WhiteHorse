@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WhiteHorse</name>
+    </assembly>
+    <members>
+        <member name="T:Excel.CreatExcel">
+            <summary>
+            创建EXCEL文件
+            </summary>
+        </member>
+        <member name="M:Excel.CreatExcel.ExportExcel(System.String,System.String,System.Object[][],System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            将数据导出为.xlsx文件
+            </summary>
+            <param name="filePath">文件路径，比如：\n"d:\壹匹BIM.xlsx"</param>
+            <param name="sheetName">工作表名称</param>
+            <param name="data">待写入的数据\n请处理为一维或者二维列表</param>
+            <param name="startRow">设置插入行，第一行为1</param>
+            <param name="startCol">设置插入列，第一列为1</param>
+            <param name="wrap">文字自动换行</param>
+            <param name="transpose">行列转换</param>
+            <returns>生成的文件路径</returns>
+            <search>excel,export,make</search>
+        </member>
+        <member name="M:Excel.CreatExcel.MakeChart(System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.Object},System.Collections.Generic.List{System.Object},System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            创建图表
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="sheetName">表格名称</param>
+            <param name="chartName">图表名称</param>
+            <param name="chartType">图表样式</param>
+            <param name="xData">X方向数据</param>
+            <param name="yData">X方向数据</param>
+            <param name="xPos">图表左上角X位置，0最小</param>
+            <param name="yPos">图表左上角Y位置，0最小</param>
+            <param name="xSize">图标X方向尺寸</param>
+            <param name="ySize">图标Y方向尺寸</param>
+            <returns>创建的文件路径</returns>
+            <search>excel,chart,make</search>
+        </member>
+        <member name="T:Excel.ReadExcel">
+            <summary>
+            读取EXCEL文件
+            </summary>
+        </member>
+        <member name="M:Excel.ReadExcel.ImportExcel(System.String,System.String,System.Boolean)">
+            <summary>
+            读取Excel文件，可切换读取方式
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="sheetName">表格名称</param>
+            <param name="transpose">行列颠倒</param>
+            <returns>返回的数据</returns>
+            <search>excel,import,read</search>
+        </member>
+        <member name="T:GeomTools.WHFunctions">
+            <summary>
+            几何体相关方法
+            </summary>
+        </member>
+        <member name="M:GeomTools.WHFunctions.JudgeDuplicatePoints(Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point)">
+            <summary>
+            判断点是否重合
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeomTools.WHFunctions.JudgeDuplicateCurves(Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve)">
+            <summary>
+            判断线是否重合
+            </summary>
+            <param name="crv1"></param>
+            <param name="crv2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeomTools.WHFunctions.CanJoin(Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve)">
+            <summary>
+            判断能否合并
+            </summary>
+            <param name="curve1"></param>
+            <param name="curve2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeomTools.WHFunctions.GetPoint(Autodesk.DesignScript.Geometry.Curve,System.Double)">
+            <summary>
+            获取点
+            </summary>
+            <param name="curve"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GeomTools.WHFunctions.CreatPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            创建点
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FuncTools.Tools">
+            <summary>
+            方法库
+            </summary>
+        </member>
+        <member name="M:FuncTools.Tools.Rotate(System.Object[0:,0:])">
+            <summary>
+            行列转换数组
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FuncTools.Tools.Rotate(System.Collections.Generic.List{System.Collections.Generic.List{System.Object}})">
+            <summary>
+            将二维列表(List)转换成二维数组，二维数组转置，然后将二维数组转换成列表
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Geometry.WH_Curve">
+            <summary>
+            Curves类
+            </summary>
+        </member>
+        <member name="M:Geometry.WH_Curve.MergeCurve(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Curve})">
+            <summary>
+            合并多条Curve为PolyCurve
+            支持包含独立Curve，不会报错
+            </summary>
+            <param name="curves">需合并的曲线列表</param>
+            <returns name="PolyCurve">合并后的结果</returns>
+            <returns name="AloneCurve">独立的Curve</returns>
+            <search>curve,join,merge</search>
+        </member>
+        <member name="M:Geometry.WH_Curve.EvaluateCurve(Autodesk.DesignScript.Geometry.Curve,System.Double)">
+            <summary>
+            分析曲线
+            </summary>
+            <param name="curve">曲线</param>
+            <param name="parameter">指定parameter</param>
+            <returns name="Point">指定parameter处的点</returns>
+            <returns name="Tangent">指定parameter处的曲线的垂直向量</returns>
+            <returns name="Plane">指定parameter处的Plane</returns>
+            <search>curve,evaluate,normal,point,pointatparameter,planeatparameter,normalatparameter</search>
+        </member>
+        <member name="M:Geometry.WH_Curve.GetPoints(Autodesk.DesignScript.Geometry.Curve)">
+            <summary>
+            获取Curve的起始点
+            </summary>
+            <param name="curve"></param>
+            <returns name="StartPoint">起点</returns>
+            <returns name="EndPoint">终点</returns>
+            <search>point,curve,startpoint,endpoint</search>
+        </member>
+        <member name="M:Geometry.WH_Curve.ByAlongSurface(Autodesk.DesignScript.Geometry.Surface,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            沿Surface生成指定数量的Curve
+            </summary>
+            <param name="surface">基面</param>
+            <param name="number">线数量</param>
+            <param name="accuracy">精度</param>
+            <param name="direction">方向，0为U方向，1为V方向</param>
+            <returns></returns>
+        </member>
+        <member name="M:Geometry.WH_Curve.RemoveDuplicates(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Curve})">
+            <summary>
+            去除重复曲线
+            </summary>
+            <param name="curves">线列表</param>
+            <returns>返回的曲线</returns>
+            <search>curve, duplicate, remove</search>
+        </member>
+        <member name="M:Geometry.WH_Curve.ByBetweenTwoCurves(Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            在两条线之间生成指定数量的曲线
+            </summary>
+            <param name="curve1">第一条</param>
+            <param name="curve2">第二条</param>
+            <param name="number">数量</param>
+            <param name="accuracy">精度，如是直线和忽略</param>
+            <param name="contain">是否包含起始</param>
+            <returns>生成的曲线</returns>
+        </member>
+        <member name="M:Geometry.WH_Curve.DetermineDirection(Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve)">
+            <summary>
+            判断Curve是否差不多方向
+            夹角小于90°判定为同向，否则判定为反向
+            </summary>
+            <param name="curve">原始curve</param>
+            <param name="other">要判断的curve</param>
+            <returns>同向为True，反向为False</returns>
+            <search>curve, line, vector</search>
+        </member>
+        <member name="T:Geometry.WH_PolyCurve">
+            <summary>
+            PolyCurve
+            </summary>
+        </member>
+        <member name="M:Geometry.WH_PolyCurve.DeconstructePolyCurve(Autodesk.DesignScript.Geometry.PolyCurve)">
+            <summary>
+            分析PolyCurve，返回组成的线和点等
+            </summary>
+            <param name="polyCurve">需分析的polycurve</param>
+            <returns name="Curves">polycurve的组成curve</returns>
+            <returns name="Points">polycurve的顶点</returns>
+            <returns name="NumOfCurves">polycurve的curve数量</returns>
+            <search>polycurve,point,explode,curve</search>
+        </member>
+        <member name="T:Geometry.WH_Point">
+            <summary>
+            Points类
+            </summary>
+        </member>
+        <member name="M:Geometry.WH_Point.RemoveDuplicates(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point})">
+            <summary>
+            去除重复点
+            </summary>
+            <param name="points">原始点</param>
+            <returns>处理后的点</returns>
+            <search>point,duplicate,remove,delete</search>
+        </member>
+        <member name="M:Geometry.WH_Point.DeconstructPoint(Autodesk.DesignScript.Geometry.Point)">
+            <summary>
+            获取点的三个坐标
+            </summary>
+            <param name="point">点</param>
+            <returns name="X">X坐标值</returns>
+            <returns name="Y">Y坐标值</returns>
+            <returns name="Z">Z坐标值</returns>
+            <search>point,deconstruct,x,y,z</search>
+        </member>
+        <member name="M:Geometry.WH_Point.SortAlongCurve(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},Autodesk.DesignScript.Geometry.Curve,System.Boolean)">
+            <summary>
+            沿曲线排序点
+            </summary>
+            <param name="points">要排序的点</param>
+            <param name="curve">用来参照的曲线</param>
+            <param name="reverse">指定是否反转点序</param>
+            <returns name="Points">排序后的点</returns>
+            <returns name="Indices">原始点的索引</returns>
+            <search>point,along,sort,curve</search>
+        </member>
+        <member name="T:Geometry.WH_Surface">
+            <summary>
+            Surface
+            </summary>
+        </member>
+        <member name="M:Geometry.WH_Surface.DeconstructSurface(Autodesk.DesignScript.Geometry.Surface)">
+            <summary>
+            返回surface的边线和顶点
+            </summary>
+            <param name="surface">需要分析的面</param>
+            <returns name="PerimeterCurves">边线</returns>
+            <returns name="Points">顶点</returns>
+            <search>perimeter,surface,edge</search>
+        </member>
+        <member name="T:Geometry.WH_Mesh">
+            <summary>
+            Mesh
+            </summary>
+        </member>
+        <member name="M:Geometry.WH_Mesh.ConvertToPolySurface(Autodesk.DesignScript.Geometry.Mesh)">
+            <summary>
+            将Mesh转化为PolySurface
+            </summary>
+            <param name="mesh">网格</param>
+            <returns>转化后的PolySurface</returns>
+        </member>
+        <member name="T:Revit.WH_Filter">
+            <summary>
+            Filter
+            </summary>
+        </member>
+        <member name="M:Revit.WH_Filter.ByCategory(System.Collections.Generic.List{Revit.Elements.Element},Revit.Elements.Category)">
+            <summary>
+            从选择的元素中过滤出指定类别的元素
+            </summary>
+            <param name="elements">待过滤的元素(Elements)</param>
+            <param name="category">用来过滤的类别</param>
+            <returns name="Elements">筛选出的元素(Elements)</returns>
+            <returns name="Amount">筛选出的元素总数</returns>
+            <search>
+            elementfilter, filter, category, wh
+            </search>
+        </member>
+        <member name="M:Revit.WH_Filter.ByName(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            从选择的元素中过滤出指定名称的元素
+            </summary>
+            <param name="elements">待过滤的元素(Elements)</param>
+            <param name="name">用来过滤的名称</param>
+            <returns name="Elements">筛选出的元素(Elements)</returns>
+            <returns name="Amount">筛选出的元素总数</returns>
+            <search>
+            elementfilter, filter, category, wh
+            </search>
+        </member>
+        <member name="M:Revit.WH_Filter.ByNameContain(System.Collections.Generic.List{Revit.Elements.Element},System.String)">
+            <summary>
+            从选择的元素中过滤出名称包含指定字符串的元素
+            </summary>
+            <param name="elements">待过滤的元素(Elements)</param>
+            <param name="str">用来过滤的字符串</param>
+            <returns name="Elements">筛选出的元素(Elements)</returns>
+            <returns name="Amount">筛选出的元素总数</returns>
+            <search>
+            elementfilter, filter, category, wh
+            </search>
+        </member>
+        <member name="M:Revit.WH_Filter.ByParamValue(System.Collections.Generic.List{Revit.Elements.Element},System.String,System.String)">
+            <summary>
+            从选择的元素中过滤出指定参数值(字符串)的元素
+            </summary>
+            <param name="elements">待过滤的元素(Elements)</param>
+            <param name="parameter">元素参数</param>
+            <param name="value">参数值</param>
+            <returns name="Elements">筛选出的元素(Elements)</returns>
+            <returns name="Amount">筛选出的元素总数</returns>
+            <search>
+            elementfilter, filter, category, wh
+            </search>
+        </member>
+        <member name="M:Revit.WH_Filter.ByParamValueContain(System.Collections.Generic.List{Revit.Elements.Element},System.String,System.String)">
+            <summary>
+            从选择的元素中过滤出参数值(字符串)包含指定字符串的元素
+            </summary>
+            <param name="elements">待过滤的元素(Elements)</param>
+            <param name="parameter">元素参数</param>
+            <param name="str">搜索的字符串</param>
+            <returns name="Elements">筛选出的元素(Elements)</returns>
+            <returns name="Amount">筛选出的元素总数</returns>
+            <search>
+            elementfilter, filter, category, wh
+            </search>
+        </member>
+        <member name="T:Revit.WH_Opening">
+            <summary>
+            Opening
+            </summary>
+        </member>
+        <member name="M:Revit.WH_Opening.ByHostAndCurve(Revit.Elements.Element,Autodesk.DesignScript.Geometry.Curve)">
+            <summary>
+            在指定板(屋顶，楼板，天花板)上开洞
+            支持圆和各种曲线，除了圆，其它曲线
+            请转为多段线且需闭合!
+            </summary>
+            <param name="host">需开洞的楼板</param>
+            <param name="curve">洞口边线</param>
+            <return name="Opening">生成的洞口</return>
+            <search>opening, open, floor, wh</search>
+        </member>
+        <member name="T:Revit.WH_Family">
+            <summary>
+            Family
+            </summary>
+        </member>
+        <member name="M:Revit.WH_Family.InstanceByPointAndHost(Autodesk.DesignScript.Geometry.Point,Revit.Elements.FamilyType,Revit.Elements.Element)">
+            <summary>
+            在主体元素上创建族实例，比如在墙上创建门窗等
+            </summary>
+            <param name="point">族实例的插入点</param>
+            <param name="familyType">要插入的族类型</param>
+            <param name="host">主体元素</param>
+            <returns name="FamilyInstance">生成的族实例</returns>
+            <search>family, door, window, wh</search>
+        </member>
+        <member name="M:Revit.WH_Family.ChangeName(Revit.Elements.Element,System.String)">
+            <summary>
+            改族名或族类型名
+            </summary>
+            <param name="element">族类型(FamilyType)或 族(Family)</param>
+            <param name="name">想要修改成的字符串</param>
+            <returns name="Element">修改完返回输入的元素</returns>
+            <search>family, familytype, rename, name, wh, yipi</search>
+        </member>
+        <member name="T:Revit.WH_Rebar">
+            <summary>
+            rebar
+            </summary>
+        </member>
+        <member name="M:Revit.WH_Rebar.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Revit.WH_Rebar.ByCurves(System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Curve},Revit.Elements.Element,System.String,Revit.Elements.Element,System.String,System.String,Revit.Elements.Element,Revit.Elements.Element,Autodesk.DesignScript.Geometry.Vector)">
+            <summary>
+            通过curve创建钢筋
+            </summary>
+            <param name="curves">钢筋基线</param>
+            <param name="hostElement">钢筋所在的主体元素</param>
+            <param name="rebarStyle">钢筋样式，从RebarArguments中选择</param>
+            <param name="rebarBarType">钢筋类型，从RebarArguments中选择</param>
+            <param name="startHookOrientation">起始弯钩方向，从RebarArguments中选择</param>
+            <param name="endHookOrientation">结束弯钩方向，从RebarArguments中选择</param>
+            <param name="startHookType">起始弯钩类型，从RebarArguments中选择</param>
+            <param name="endHookType">结束弯钩类型，从RebarArguments中选择</param>
+            <param name="normal">钢筋所在平面方向</param>
+            <returns name="Rebars">生成的钢筋</returns>
+            <search>rebar</search>
+        </member>
+        <member name="T:Display.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Display.Tag.ByTextPointAndSize(System.String,Autodesk.DesignScript.Geometry.Point,System.Double)">
+            <summary>
+            创建标签
+            </summary>
+            <param name="text">要显示的文字</param>
+            <param name="point">文字基点</param>
+            <param name="size">缩放大小</param>
+            <returns></returns>
+        </member>
+        <member name="T:QRcode.QRcode">
+            <summary>
+            二维码
+            </summary>
+        </member>
+        <member name="M:QRcode.QRcode.MakeQR(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            从指定字符串生成二维码
+            </summary>
+            <param name="content">二维码内容</param>
+            <param name="imagePath">生成二维码存放的路径，如"D:\壹匹BIM\"</param>
+            <param name="imageName">二维码图像名称，\n应以图片格式后缀，如：\n"白马.png"</param>
+            <param name="show">生成完是否预览二维码</param>
+            <returns name="ImagePath">二维码文件路径</returns>
+            <search>string,qr,qrcode,image</search>
+        </member>
+        <member name="T:Setting.Setting">
+            <summary>
+            WH设置文件等
+            </summary>
+        </member>
+        <member name="M:Setting.Setting.GetPath">
+            <summary>
+            返回WhiteHorse包所在的路径,供导入PyScript中使用
+            </summary>
+            <returns>路径</returns>
+            <search>path</search>
+        </member>
+        <member name="M:Setting.Setting.About">
+            <summary>
+            关于WhiteHorse
+            </summary>
+        </member>
+        <member name="M:Setting.Setting.Join">
+            <summary>
+            显示QQ群和公众号二维码
+            </summary>
+        </member>
+        <member name="M:Setting.Setting.CheckUpdate">
+            <summary>
+            检查更新，需联网
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\bin\Debug\WhiteHorseFunctions.dll
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\bin\Debug\WhiteHorseFunctions.pdb
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.csproj.CoreCompileInputs.cache
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.dll
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.pdb
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.csproj.CoreCompileInputs.cache
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.dll
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.pdb
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\bin\Debug\WhiteHorseFunctions.dll
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\bin\Debug\WhiteHorseFunctions.pdb
+G:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.csprojResolveAssemblyReference.cache
+H:\中转\WH_SourceCode\YP_Tools\WhiteHorseFunctions\WhiteHorseFunctions\obj\Debug\WhiteHorseFunctions.csprojResolveAssemblyReference.cache
