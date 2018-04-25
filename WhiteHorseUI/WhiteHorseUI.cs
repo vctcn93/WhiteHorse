@@ -286,7 +286,7 @@ namespace RevitUI
 
             int builtInCategoryId = (int)Items[SelectedIndex].Item;
 
-            Func<int, IList<Revit.Elements.Element>> func = new Func<int, IList<Revit.Elements.Element>>(Functions.RevitUtils.ElementsOfCategory);
+            Func<int, IList<Revit.Elements.Element>> func = new Func<int, IList<Revit.Elements.Element>>(Functions.RevitUtils.ElementsOfCategoryTS);
             List<AssociativeNode> node = new List<AssociativeNode> { AstFactory.BuildIntNode(builtInCategoryId) };
             AssociativeNode associativeNode = AstFactory.BuildFunctionCall(func, node, null);
             return new BinaryExpressionNode[]
@@ -347,7 +347,7 @@ namespace RevitUI
 
             int levelId = (int)Items[SelectedIndex].Item;
 
-            Func<int?, IList<Revit.Elements.Element>> func = new Func<int?, IList<Revit.Elements.Element>>(Functions.RevitUtils.ElementsAtLevel);
+            Func<int?, IList<Revit.Elements.Element>> func = new Func<int?, IList<Revit.Elements.Element>>(Functions.RevitUtils.ElementsAtLevelTS);
             List<AssociativeNode> node = new List<AssociativeNode> { AstFactory.BuildIntNode(levelId) };
             AssociativeNode associativeNode = AstFactory.BuildFunctionCall(func, node, null);
             return new BinaryExpressionNode[]
@@ -396,7 +396,7 @@ namespace RevitUI
                     Family family = (Family)enumerator.Current;
                     foreach (ElementId current in family.GetFamilySymbolIds())
                     {
-                        Element element = family.Document.ToPyElement(current);
+                        Element element = family.Document.GetElement(current);
                         base.Items.Add(new DynamoDropDownItem(string.Format("{0}:{1}", family.Name, element.Name), current.IntegerValue));
                     }
                 }

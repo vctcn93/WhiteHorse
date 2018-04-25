@@ -6,6 +6,7 @@ using System.Linq;
 using Revit.Elements;
 using WhiteHorseLib.Extension;
 using Element = Revit.Elements.Element;
+using FamilyInstance = Autodesk.Revit.DB.FamilyInstance;
 
 namespace Functions
 {
@@ -50,27 +51,36 @@ namespace Functions
         //    return outElements;
         //}
 
-        //[IsObsolete]
-        //public static List<Revit.Elements.Element> ElementsOfFamilyType(int? familyTypeId)
-        //{
-        //    if (familyTypeId == null)
-        //    {
-        //        return null;
-        //    }
+        [IsObsolete]
+        public static List<Revit.Elements.Element> ElementsOfFamilyType(int? familyTypeId)
+        {
+            if (familyTypeId == null)
+            {
+                return null;
+            }
 
-        //    ElementId id = new ElementId((int)familyTypeId);
+            ElementId id = new ElementId((int)familyTypeId);
 
-        //    ElementClassFilter elementClassFilter = new ElementClassFilter(typeof(Autodesk.Revit.DB.FamilyInstance));
-        //    FilteredElementCollector filteredElementCollector = new FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument);
-        //    IEnumerable<Autodesk.Revit.DB.FamilyInstance> source = filteredElementCollector.WherePasses(elementClassFilter).WhereElementIsNotElementType().ToElements().Cast<Autodesk.Revit.DB.FamilyInstance>();
-        //    IEnumerable<Autodesk.Revit.DB.FamilyInstance> source2 = from x in source
-        //        where x.Symbol.Id.IntegerValue == familyTypeId
-        //        select x;
-        //    return (from x in source2
-        //        select ElementSelector.ByElementId(x.Id.IntegerValue)).ToList<Revit.Elements.Element>();
-        //}
+            ElementClassFilter elementClassFilter = new ElementClassFilter(typeof(Autodesk.Revit.DB.FamilyInstance));
+            FilteredElementCollector filteredElementCollector = new FilteredElementCollector(DocumentManager.Instance.CurrentDBDocument);
+            IEnumerable<Autodesk.Revit.DB.FamilyInstance> source = filteredElementCollector.WherePasses(elementClassFilter).WhereElementIsNotElementType().ToElements().Cast<Autodesk.Revit.DB.FamilyInstance>();
+            IEnumerable<Autodesk.Revit.DB.FamilyInstance> source2 = from x in source
+                                                                    where x.Symbol.Id.IntegerValue == familyTypeId
+                                                                    select x;
+            return (from x in source2
+                    select ElementSelector.ByElementId(x.Id.IntegerValue)).ToList<Revit.Elements.Element>();
+        }
 
-
+        public static List<Revit.Elements.Element> ElementsOfFamilyTypeTS(int? familyTypeId)
+        {
+            if (familyTypeId == null)
+                return new List<Element>();
+            return DocumentManager.Instance.CurrentDBDocument.GetCollector()
+                .WherePasses(new ElementClassFilter(typeof(FamilyInstance)))
+                .WhereElementIsNotElementType()
+                .Where(n => n.Id.IntegerValue == familyTypeId)
+                .Select(m => m.Id.ToPyElement()).ToList();
+        }
         /// <summary>
         /// 获取某一楼层上的元素（Pyelement）
         /// </summary>
@@ -78,11 +88,10 @@ namespace Functions
         /// <returns></returns>
         public static IList<Element> ElementsAtLevelTS(int? levelId)
         {
-            IList<Element> result = new List<Element>();
-            int id = levelId == null ? -1 : (int)levelId;
-            if (id == -1) return result;
+            if (levelId == null)
+                return new List<Element>();
             return DocumentManager.Instance.CurrentDBDocument.GetCollector()
-                .WherePasses(new ElementLevelFilter(id.ToElementId()))
+                .WherePasses(new ElementLevelFilter((levelId == null ? -1 : (int)levelId).ToElementId()))
                 .WhereElementIsNotElementType()
                 .Select(m => m.Id.ToPyElement()).ToList();
         }
@@ -94,11 +103,11 @@ namespace Functions
                 .Select(m => m.Id.ToPyElement()).ToList();
         }
         //根据元素familytypeId 获取元素的类型
-        public static Element ToPyElementType(this int familyTypeId)
+        public static Element ToElementType(this int familyTypeId)
         {
             return familyTypeId.ToPyElement();
         }
-        public static Element ToPyElementType(this ElementId familyTypeId)
+        public static Element ToElementsType(this ElementId familyTypeId)
         {
             return familyTypeId.ToPyElement();
         }
