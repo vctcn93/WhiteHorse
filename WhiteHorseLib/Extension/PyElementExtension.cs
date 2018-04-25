@@ -10,12 +10,12 @@ namespace WhiteHorseLib.Extension
     public static class PyElementExtension
     {
         //根据id获取element
-        public static Element ToPyElement(this int Id)
+        public static Element ToDyElement(this int Id)
         {
             return ElementSelector.ByElementId(Id);
         }
         //根据elementid获取element
-        public static Element ToPyElement(this ElementId id)
+        public static Element ToDyElement(this ElementId id)
         {
             return ElementSelector.ByElementId(id.IntegerValue);
         }

@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Extension\DBElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\DocumentExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DyCurveExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DyPointExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\PyElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extension\ElementIdExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\CollectorHelper.cs" />

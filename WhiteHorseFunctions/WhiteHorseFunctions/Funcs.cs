@@ -79,7 +79,7 @@ namespace Functions
                 .WherePasses(new ElementClassFilter(typeof(FamilyInstance)))
                 .WhereElementIsNotElementType()
                 .Where(n => n.Id.IntegerValue == familyTypeId)
-                .Select(m => m.Id.ToPyElement()).ToList();
+                .Select(m => m.Id.ToDyElement()).ToList();
         }
         /// <summary>
         /// 获取某一楼层上的元素（Pyelement）
@@ -93,23 +93,23 @@ namespace Functions
             return DocumentManager.Instance.CurrentDBDocument.GetCollector()
                 .WherePasses(new ElementLevelFilter((levelId == null ? -1 : (int)levelId).ToElementId()))
                 .WhereElementIsNotElementType()
-                .Select(m => m.Id.ToPyElement()).ToList();
+                .Select(m => m.Id.ToDyElement()).ToList();
         }
         public static IList<Element> ElementsOfCategoryTS(int categoryId)
         {
             return DocumentManager.Instance.CurrentDBDocument.GetCollector()
                 .OfCategoryId(categoryId.ToElementId())
                 .WhereElementIsNotElementType()
-                .Select(m => m.Id.ToPyElement()).ToList();
+                .Select(m => m.Id.ToDyElement()).ToList();
         }
         //根据元素familytypeId 获取元素的类型
         public static Element ToElementType(this int familyTypeId)
         {
-            return familyTypeId.ToPyElement();
+            return familyTypeId.ToDyElement();
         }
         public static Element ToElementsType(this ElementId familyTypeId)
         {
-            return familyTypeId.ToPyElement();
+            return familyTypeId.ToDyElement();
         }
 
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Autodesk.DesignScript.Runtime;
+using Autodesk.Revit.DB;
+using DyCurve = Autodesk.DesignScript.Geometry.Curve;
 
 namespace GeomTools
 {
@@ -35,7 +37,8 @@ namespace GeomTools
         /// <param name="crv1"></param>
         /// <param name="crv2"></param>
         /// <returns></returns>
-        public static bool JudgeDuplicateCurves(Autodesk.DesignScript.Geometry.Curve crv1, Autodesk.DesignScript.Geometry.Curve crv2)
+        public static bool JudgeDuplicateCurves(Autodesk.DesignScript.Geometry.Curve crv1
+            , Autodesk.DesignScript.Geometry.Curve crv2)
         {
             Autodesk.DesignScript.Geometry.Point pt1 = crv1.StartPoint;
             Autodesk.DesignScript.Geometry.Point pt2 = crv1.EndPoint;
@@ -51,6 +54,7 @@ namespace GeomTools
             return false;
         }
 
+         
         /// <summary>
         /// 判断能否合并
         /// </summary>
@@ -76,6 +80,8 @@ namespace GeomTools
             return b;
 
         }
+
+       
 
         /// <summary>
         /// 获取点

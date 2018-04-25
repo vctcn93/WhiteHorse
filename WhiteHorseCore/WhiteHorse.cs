@@ -210,7 +210,28 @@ namespace Geometry
             }
             return outCurves;
         }
-
+        /// <summary>
+        /// 去除重复曲线
+        /// </summary>
+        /// <param name="curves"></param>
+        /// <returns></returns>
+        public static List<Curve> RemoveDuplicatesTS(List<Curve> curves)
+        {
+            List<Curve> result = new List<Curve>();
+            foreach (Curve c1 in curves)
+            {
+                if (result.Count == 0)
+                    result.Add(c1);
+                foreach (Curve c2 in result)
+                {
+                    if (c1.IsAlmostEqualTo(c2))
+                        continue;
+                    else
+                        result.Add(c1);
+                }
+            }
+            return result;
+        }
         /// <summary>
         /// 在两条线之间生成指定数量的曲线
         /// </summary>
