@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Autodesk.DesignScript.Runtime;
+using Autodesk.Revit.DB;
+using DyCurve = Autodesk.DesignScript.Geometry.Curve;
 
 namespace GeomTools
 {
@@ -18,10 +20,14 @@ namespace GeomTools
         /// <returns></returns>
         public static bool JudgeDuplicatePoints(Autodesk.DesignScript.Geometry.Point point1, Autodesk.DesignScript.Geometry.Point point2)
         {
-            if (point1.X == point2.X && point1.Y == point2.Y && point1.Z == point2.Z)
+            if (point1.IsAlmostEqualTo(point2))
             {
                 return true;
             }
+            //if (point1.X == point2.X && point1.Y == point2.Y && point1.Z == point2.Z)
+            //{
+            //    return true;
+            //}
             return false;
         }
 
@@ -31,7 +37,8 @@ namespace GeomTools
         /// <param name="crv1"></param>
         /// <param name="crv2"></param>
         /// <returns></returns>
-        public static bool JudgeDuplicateCurves(Autodesk.DesignScript.Geometry.Curve crv1, Autodesk.DesignScript.Geometry.Curve crv2)
+        public static bool JudgeDuplicateCurves(Autodesk.DesignScript.Geometry.Curve crv1
+            , Autodesk.DesignScript.Geometry.Curve crv2)
         {
             Autodesk.DesignScript.Geometry.Point pt1 = crv1.StartPoint;
             Autodesk.DesignScript.Geometry.Point pt2 = crv1.EndPoint;
@@ -47,17 +54,20 @@ namespace GeomTools
             return false;
         }
 
+         
         /// <summary>
         /// 判断能否合并
         /// </summary>
         /// <param name="curve1"></param>
         /// <param name="curve2"></param>
         /// <returns></returns>
-        public static bool CanJoin(Autodesk.DesignScript.Geometry.Curve curve1, Autodesk.DesignScript.Geometry.Curve curve2)
+        public static bool CanJoin(Autodesk.DesignScript.Geometry.Curve curve1, 
+            Autodesk.DesignScript.Geometry.Curve curve2)
         {
             Autodesk.DesignScript.Geometry.Point pt1 = curve1.StartPoint;
             Autodesk.DesignScript.Geometry.Point pt2 = curve1.EndPoint;
-            List<Autodesk.DesignScript.Geometry.Point> crvPts = new List<Autodesk.DesignScript.Geometry.Point>() { curve2.StartPoint, curve2.EndPoint };
+            List<Autodesk.DesignScript.Geometry.Point> crvPts = 
+                new List<Autodesk.DesignScript.Geometry.Point>() { curve2.StartPoint, curve2.EndPoint };
             bool b = false;
             foreach (var p in crvPts)
             {
@@ -70,6 +80,8 @@ namespace GeomTools
             return b;
 
         }
+
+       
 
         /// <summary>
         /// 获取点

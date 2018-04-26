@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>24af8438-885d-4192-a2d8-d0eacfd1445e</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>WhiteHorseLib</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DBElementExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DocumentExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DyCurveExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\DyPointExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\PyElementExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension\ElementIdExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\CollectorHelper.cs" />
+  </ItemGroup>
+</Project>

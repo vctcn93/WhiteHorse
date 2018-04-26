@@ -11,7 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteHorseFunctions", "Whit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteHorseIcon", "WhiteHorseIcon\WhiteHorseIcon.csproj", "{E5204BD4-9609-4210-88A8-E6E4B07A41AF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WhiteHorseLib", "WhiteHorseLib\WhiteHorseLib.shproj", "{24AF8438-885D-4192-A2D8-D0EACFD1445E}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		WhiteHorseLib\WhiteHorseLib.projitems*{24af8438-885d-4192-a2d8-d0eacfd1445e}*SharedItemsImports = 13
+		WhiteHorseLib\WhiteHorseLib.projitems*{7b69842e-41e0-4e13-b5e3-21cca8dcadfd}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

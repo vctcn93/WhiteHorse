@@ -210,7 +210,28 @@ namespace Geometry
             }
             return outCurves;
         }
-
+        /// <summary>
+        /// 去除重复曲线
+        /// </summary>
+        /// <param name="curves"></param>
+        /// <returns></returns>
+        public static List<Curve> RemoveDuplicatesTS(List<Curve> curves)
+        {
+            List<Curve> result = new List<Curve>();
+            foreach (Curve c1 in curves)
+            {
+                if (result.Count == 0)
+                    result.Add(c1);
+                foreach (Curve c2 in result)
+                {
+                    if (c1.IsAlmostEqualTo(c2))
+                        continue;
+                    else
+                        result.Add(c1);
+                }
+            }
+            return result;
+        }
         /// <summary>
         /// 在两条线之间生成指定数量的曲线
         /// </summary>
@@ -894,238 +915,7 @@ namespace Revit
     }
     #endregion
 
-    public class Schedule
-    {
-        // Token: 0x060000CC RID: 204 RVA: 0x00006E8C File Offset: 0x0000508C
-        internal Schedule()
-        {
-            List<List<string>> list = new List<List<string>>();
-            List<string> list2 = new List<string>();
-            List<string> list3 = new List<string>();
-            this.list_0 = list;
-            this.list_1 = list2;
-            this.list_2 = list3;
-            this.int_0 = 0;
-        }
 
-        // Token: 0x060000CD RID: 205 RVA: 0x0000266A File Offset: 0x0000086A
-        internal List<string> method_0()
-        {
-            return this.list_1;
-        }
-
-        // Token: 0x060000CE RID: 206 RVA: 0x00002672 File Offset: 0x00000872
-        internal void method_1(List<string> list_3)
-        {
-            this.list_1 = list_3;
-        }
-
-        // Token: 0x060000CF RID: 207 RVA: 0x0000267B File Offset: 0x0000087B
-        internal List<string> method_2()
-        {
-            return this.list_2;
-        }
-
-        // Token: 0x060000D0 RID: 208 RVA: 0x00002683 File Offset: 0x00000883
-        internal void method_3(List<string> list_3)
-        {
-            this.list_2 = list_3;
-        }
-
-        // Token: 0x060000D1 RID: 209 RVA: 0x0000268C File Offset: 0x0000088C
-        internal List<List<string>> method_4()
-        {
-            return this.list_0;
-        }
-
-        // Token: 0x060000D2 RID: 210 RVA: 0x00002694 File Offset: 0x00000894
-        internal void method_5(List<List<string>> list_3)
-        {
-            this.list_0 = list_3;
-        }
-
-        // Token: 0x060000D3 RID: 211 RVA: 0x0000269D File Offset: 0x0000089D
-        internal View method_6()
-        {
-            return this.view_0;
-        }
-
-        // Token: 0x060000D4 RID: 212 RVA: 0x000026A5 File Offset: 0x000008A5
-        internal void method_7(View view_1)
-        {
-            this.view_0 = view_1;
-        }
-
-        // Token: 0x060000D5 RID: 213 RVA: 0x000026AE File Offset: 0x000008AE
-        internal int method_8()
-        {
-            return this.int_0;
-        }
-
-        // Token: 0x060000D6 RID: 214 RVA: 0x000026B6 File Offset: 0x000008B6
-        internal void method_9(int int_1)
-        {
-            this.int_0 = int_1;
-        }
-
-        // Token: 0x060000D7 RID: 215 RVA: 0x00006ED0 File Offset: 0x000050D0
-        private static void smethod_0(Schedule schedule_0)
-        {
-            List<SectionType> list = new List<SectionType>();
-            list.Add(0);
-            list.Add(1);
-            list.Add(3);
-            PanelScheduleView panelScheduleView = (PanelScheduleView)schedule_0.method_6();
-            foreach (SectionType sectionType in list)
-            {
-                TableSectionData sectionData = panelScheduleView.GetSectionData(sectionType);
-                int numberOfRows = sectionData.NumberOfRows;
-                int numberOfColumns = sectionData.NumberOfColumns;
-                int lastColumnNumber = sectionData.LastColumnNumber;
-                if (lastColumnNumber > schedule_0.method_8())
-                {
-                    schedule_0.method_9(lastColumnNumber);
-                }
-                List<List<string>> list2 = new List<List<string>>();
-                for (int i = 0; i < numberOfRows; i++)
-                {
-                    List<string> list3 = new List<string>();
-                    for (int j = 0; j < numberOfColumns; j++)
-                    {
-                        try
-                        {
-                            list3.Add(panelScheduleView.GetCellText(sectionType, i, j));
-                            goto IL_CE;
-                        }
-                        catch
-                        {
-                            goto IL_CE;
-                        }
-                        break;
-                        IL_CE:;
-                    }
-                    if (list3.Count > 0)
-                    {
-                        list2.Add(list3);
-                    }
-                }
-                schedule_0.method_4().AddRange(list2);
-            }
-        }
-
-        // Token: 0x060000D8 RID: 216 RVA: 0x00006FE0 File Offset: 0x000051E0
-        private static void smethod_1(Schedule schedule_0, bool bool_0)
-        {
-            ViewSchedule viewSchedule = (ViewSchedule)schedule_0.method_6();
-            TableSectionData sectionData = viewSchedule.GetTableData().GetSectionData(1);
-            int numberOfRows = sectionData.NumberOfRows;
-            int numberOfColumns = sectionData.NumberOfColumns;
-            for (int i = 0; i < numberOfRows; i++)
-            {
-                List<string> list = new List<string>();
-                for (int j = 0; j < numberOfColumns; j++)
-                {
-                    list.Add(viewSchedule.GetCellText(1, i, j));
-                }
-                schedule_0.method_4().Add(list);
-            }
-            if (viewSchedule.Definition.ShowHeaders && bool_0)
-            {
-                schedule_0.method_4().RemoveRange(0, 2);
-            }
-        }
-
-        // Token: 0x060000D9 RID: 217 RVA: 0x0000706C File Offset: 0x0000526C
-        internal void method_10(Schedule schedule_0, object object_0, bool bool_0, bool bool_1, string string_0)
-        {
-            Document currentDBDocument = DocumentManager.Instance.CurrentDBDocument;
-            Class8.smethod_9(schedule_0, object_0, currentDBDocument);
-            Class8.smethod_3(schedule_0, object_0, string_0);
-            if (schedule_0.method_6().ViewType == 5)
-            {
-                Schedule.smethod_1(schedule_0, bool_0);
-                return;
-            }
-            Schedule.smethod_0(schedule_0);
-        }
-
-        // Token: 0x060000DA RID: 218 RVA: 0x000026BF File Offset: 0x000008BF
-        [CanUpdatePeriodically(true)]
-        public static List<List<string>> GetData(object scheduleView, [DefaultArgument("false")] bool removeHeading, [DefaultArgument("true")] bool refresh)
-        {
-            Schedule schedule = new Schedule();
-            schedule.method_10(schedule, scheduleView, removeHeading, refresh, Class11.smethod_0(-1504355851));
-            return schedule.method_4();
-        }
-
-        // Token: 0x060000DB RID: 219 RVA: 0x000070B4 File Offset: 0x000052B4
-        [CanUpdatePeriodically(true)]
-        public static List<List<string>> GetDataColumns(object scheduleView, List<int> columnIndex, [DefaultArgument("false")] bool removeHeading, [DefaultArgument("true")] bool refresh)
-        {
-            Schedule schedule = new Schedule();
-            schedule.method_10(schedule, scheduleView, removeHeading, refresh, Class11.smethod_0(-1504356068));
-            bool flag = schedule.method_6().ViewType == 123;
-            List<List<string>> list = new List<List<string>>();
-            foreach (int num in columnIndex)
-            {
-                List<string> list2 = new List<string>();
-                foreach (List<string> list3 in schedule.method_4())
-                {
-                    int count = list3.Count;
-                    if (num < count)
-                    {
-                        list2.Add(list3[num]);
-                    }
-                    else
-                    {
-                        if (!flag || num >= schedule.method_8())
-                        {
-                            break;
-                        }
-                        list2.Add(string.Empty);
-                    }
-                }
-                if (list2.Count > 0)
-                {
-                    list.Add(list2);
-                }
-            }
-            return list;
-        }
-
-        // Token: 0x060000DC RID: 220 RVA: 0x000071C0 File Offset: 0x000053C0
-        [CanUpdatePeriodically(true)]
-        public static List<List<string>> GetDataRows(object scheduleView, List<int> rowIndex, [DefaultArgument("true")] bool refresh)
-        {
-            Schedule schedule = new Schedule();
-            schedule.method_10(schedule, scheduleView, false, refresh, Class11.smethod_0(-1504356062));
-            int count = schedule.method_4().Count;
-            List<List<string>> list = new List<List<string>>();
-            foreach (int num in rowIndex)
-            {
-                if (num < count)
-                {
-                    list.Add(schedule.method_4()[num]);
-                }
-            }
-            return list;
-        }
-
-        // Token: 0x0400004E RID: 78
-        private List<List<string>> list_0;
-
-        // Token: 0x0400004F RID: 79
-        private List<string> list_1;
-
-        // Token: 0x04000050 RID: 80
-        private List<string> list_2;
-
-        // Token: 0x04000051 RID: 81
-        private View view_0;
-
-        // Token: 0x04000052 RID: 82
-        private int int_0;
-    }
 }
 
 namespace Display
